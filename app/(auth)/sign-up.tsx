@@ -5,6 +5,8 @@ import { useSignUp } from '@clerk/clerk-expo';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 
+
+
 export default function SignUpScreen() {
   const { isLoaded, signUp } = useSignUp();
   const [firstName, setFirstName] = useState('');
@@ -46,7 +48,7 @@ export default function SignUpScreen() {
       
       await signUp.authenticateWithRedirect({
         strategy: provider,
-        redirectUrl: '/auth/oauth-callback',
+        redirectUrl: '/(auth)/oauth-callback',
         redirectUrlComplete: '/'
       });
     } catch (err: any) {
@@ -56,6 +58,7 @@ export default function SignUpScreen() {
   };
 
   return (
+    
     <SafeAreaView style={styles.container}>
       <StatusBar style="dark" />
       
@@ -132,20 +135,14 @@ export default function SignUpScreen() {
             style={styles.socialButton}
             onPress={() => handleOAuthSignUp('oauth_google')}
           >
-            <Image 
-              source={require('../../assets/google-icon.png')} 
-              style={styles.socialIcon} 
-            />
+            Google
           </TouchableOpacity>
           
           <TouchableOpacity 
             style={styles.socialButton}
             onPress={() => handleOAuthSignUp('oauth_apple')}
           >
-            <Image 
-              source={require('../../assets/apple-icon.png')} 
-              style={styles.socialIcon} 
-            />
+            Apple
           </TouchableOpacity>
         </View>
       </View>
@@ -159,6 +156,7 @@ export default function SignUpScreen() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
