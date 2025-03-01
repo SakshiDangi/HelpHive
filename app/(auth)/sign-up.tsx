@@ -136,6 +136,7 @@ export default function SignUpScreen() {
             onPress={() => handleOAuthSignUp('oauth_google')}
           >
             Google
+            
           </TouchableOpacity>
           
           <TouchableOpacity 
@@ -161,7 +162,7 @@ export default function SignUpScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFE135',
     padding: 20,
   },
   logoContainer: {
